@@ -1,5 +1,14 @@
-# How to submit my homework?
+# Data Structures and Algorithms
 
-Put your code in a with format: <FirstName>-<FirstName>.txt. For example, Hien-To.txt
+## Course goals:
 
-Put your file under the corresponding folder: homework/week<i>/<FirstName>-<FirstName>.txt
+Teach learners the basics of data structures and algorithms; how to apply them to solve a certain coding problem.
+
+## Course content (6 weeks):
+
+1. Data Structures and Algorithms - The Basic
+2. Arrays and Strings
+3. Array List and Linked Lists
+4. Sorting
+5. Trees
+6. Hash

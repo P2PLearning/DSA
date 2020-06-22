@@ -1,8 +1,8 @@
 # How to submit my homework?
 
-Put your code in a with format: FirstName-FirstName.txt, for example, Hien-To.txt
+Put your code in a file with format: *FirstName-LastName.txt*, for example, HienTo.txt.
 
-Put your file under the corresponding folder: homework/week<i>/FirstName-FirstName.txt
+Put your file under the corresponding folder: *homework/week<i>/FirstName-LastName.txt*
 
 # Homeworks
 

@@ -2,7 +2,7 @@
 
 ## Course goals:
 
-Teach learners the basics of data structures and algorithms and how to apply them to solve a certain coding problem.
+Teach learners the basics of data structures and algorithms and how to apply them to solve coding problems.
 
 ## Course content (6 weeks):
 

@@ -2,7 +2,7 @@
 
 Put your code in a file with format: *FirstName-LastName.txt*, for example, Hien-To.txt.
 
-Put your file under the corresponding folder: *homework/week<i>/FirstName-LastName.txt*
+Put your file under the corresponding folder: *homeworks/week[i]/FirstName-LastName.txt*
 
 # Homeworks
 

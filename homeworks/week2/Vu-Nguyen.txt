@@ -1,0 +1,50 @@
+package Leet.DSAClass.RemoveDuplicateCharacters;
+
+// Problem: Remove duplicate characters in an array of characters. The orders of the characters in the input array must be preserved.
+//
+// Hints:
+//  1. It is ok to start use some build-in library, but the end goal is to not using build-in library.
+//  2. If you are allowed to use O(1) memory, what is the best runtime you can get?
+//  3. If you are restricted to O(N) memory, what is the best runtime you can get?
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+class Main {
+    public static void main(String[] args) {
+        char[] s = {'h', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd'};
+        removeDuplicateCharacters(s);
+        // s = {'h', 'e', 'l', 'o', ' ', 'w', 'r', 'l', 'd'};
+        for (int i = 0; i < s.length; i++) {
+            System.out.print(s[i]);
+        }
+        // Output: "helo wrdrld"
+    }
+
+    public static void removeDuplicateCharacters(char[] s) {
+        Set<Character> isDuplicated = new HashSet<>();
+        List<Character> list = new ArrayList<>();
+        for (char chr : s) {
+            if (!isDuplicated.contains(chr)) {
+                list.add(chr);
+                isDuplicated.add(chr);
+            }
+        }
+        for (int i = 0; i < s.length; i++) {
+            if (i < list.size()) {
+                s[i] = list.get(i);
+            }
+        }
+    }
+      /*
+    Time-Complexity: O(N)
+    Space-Complexity: O(N)
+
+    I used 2 temp space to solve this problem
+    - isExist: check whether character is duplicated or not
+    - list: is temporary containing
+    */
+
+}

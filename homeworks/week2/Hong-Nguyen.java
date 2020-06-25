@@ -3,10 +3,13 @@ package com.Hiento.session2;
 import java.util.HashSet;
 import java.util.Set;
 
+// Time complexity is O(n) because you need to go through each and every letter.
+// Space complexity is O(1) because the number of letters is fixed
+
 public class RemoveDuplicate {
     public static void main(String[] args) {
         char[] s = {'h', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd'};
-        s = removeDuplicateCharacters(s);
+        removeDuplicateCharacters(s);
         // s = {'h', 'e', 'l', 'o', ' ', 'w', 'r', 'l', 'd'};
         for (int i = 0; i < s.length; i++) {
             System.out.print(s[i]);
@@ -14,16 +17,14 @@ public class RemoveDuplicate {
         // Output: "helo wrd"
     }
 
-    // Please comment on approaches you are taking, and their space and time complexity.
-    // If time is allowed, you can provide multiple versions of the method with trade-off in space and time complexity.
-    public static char[] removeDuplicateCharacters(char[] s) {
-        StringBuilder sb = new StringBuilder();
+    public static void removeDuplicateCharacters(char[] s) {
         Set<Character> seen = new HashSet<>();
-        for (char c : s) {
-            if (seen.contains(c)) continue;
-            seen.add(c);
-            sb.append(c);
+        for (int i = 0; i < s.length; i++) {
+            if (seen.contains(s[i])) {
+                s[i] = 0;
+            } else {
+                seen.add(s[i]);
+            }
         }
-        return sb.toString().toCharArray();
     }
    }

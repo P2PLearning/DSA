@@ -1,8 +1,10 @@
 # How to submit my homework?
 
-Put your code in a file with format: *FirstName-LastName.txt*, for example, Hien-To.txt.
+Put your code in a file with format: *FirstName-LastName.java*, for example, Hien-To.java.
 
-Put your file under the corresponding folder: *homeworks/week[i]/FirstName-LastName.txt*
+Put your file under the corresponding folder: *homeworks/week[i]/FirstName-LastName.java*
+
+Note: If your code is in python or c++, you can use different suffix, e.g., .py or .cpp
 
 # Homeworks
 

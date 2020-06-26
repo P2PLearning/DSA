@@ -1,5 +1,7 @@
 # How to submit my homework?
 
+Creates a pull request (PR) for a homework
+
 Put your code in a file with format: *FirstName-LastName.java*, for example, Hien-To.java.
 
 Put your file under the corresponding folder: *homeworks/week[i]/FirstName-LastName.java*

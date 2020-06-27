@@ -18,4 +18,4 @@ Solution: https://gist.github.com/tuanh118/de4a513e519b9cd5bea78097a605689a
 ## Week 2
 Problem: https://repl.it/@HienTo/removeDuplicateCharacters#Main.java
 
-Solution: https://repl.it/@HienTo/removeDuplicateCharacters-NoExtraStorage#Main.java
+Solution: https://repl.it/@HienTo/removeDuplicateCharacters-Solution#Main.java

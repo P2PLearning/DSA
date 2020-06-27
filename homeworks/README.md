@@ -11,7 +11,11 @@ Note: If your code is in python or c++, you can use different suffix, e.g., .py 
 # Homeworks
 
 ## Week 1
-https://repl.it/@tuanh118/findMinimumInRotatedSortedArray#Main.java
+Problem: https://repl.it/@tuanh118/findMinimumInRotatedSortedArray#Main.java
+
+Solution: https://gist.github.com/tuanh118/de4a513e519b9cd5bea78097a605689a
 
 ## Week 2
-https://repl.it/@HienTo/removeDuplicateCharacters#Main.java
+Problem: https://repl.it/@HienTo/removeDuplicateCharacters#Main.java
+
+Solution: https://repl.it/@HienTo/removeDuplicateCharacters-NoExtraStorage#Main.java

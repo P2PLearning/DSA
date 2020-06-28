@@ -1,0 +1,33 @@
+import java.util.Set;
+import java.util.List;
+import java.util.ArrayList;
+
+  
+// Time complexity is O(n)
+// Space complexity is O(n) 
+
+
+ class Main {
+    public static void main(String[] args) {
+      String myString = "Hello world!";
+      removeDuplicateCharacters(myString.toCharArray());
+    }
+   
+    public static void removeDuplicateCharacters(char[] str) {
+        if (str != null&&str.length!=0){
+            boolean[] seen = new boolean[256];
+            StringBuffer bf = new StringBuffer();
+
+            for (int i = 0; i < str.length; i++) {
+                if (!seen[str[i]]) {
+                    bf.append(str[i]);
+                    seen[str[i]] = true;
+                }
+            }
+            System.out.println(bf.toString());
+        }else{
+          System.out.println("Please input a char array");
+        }
+    }
+}
+ 

@@ -19,3 +19,6 @@ Solution: https://gist.github.com/tuanh118/de4a513e519b9cd5bea78097a605689a
 Problem: https://repl.it/@HienTo/removeDuplicateCharacters#Main.java
 
 Solution: https://repl.it/@HienTo/removeDuplicateCharacters-Solution#Main.java
+
+## Week 3
+Problem: https://repl.it/@HienTo/SinglyLinkedList#Main.java

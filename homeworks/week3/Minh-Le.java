@@ -1,9 +1,8 @@
 //Repl link: https://repl.it/@MinhD1/SinglyLinkedList#Main.java
 
 // Problem: Write two SinglyLinkedList operations: add and remove.
-public class Main
-{
-	public static void main(String[] args) {
+public class Main {
+  public static void main(String[] args) {
     SinglyLinkedList linkedList = new SinglyLinkedList();
 
     // move from empty list
@@ -21,7 +20,7 @@ public class Main
     linkedList.add(1, new Node(3));
     linkedList.print(); // 0->3->1->2->null
 
-    //index out of range, do nothing
+    // index out of range, do nothing
     linkedList.add(5, new Node(4));
     linkedList.print(); // 0->3->1->2->null
 
@@ -29,94 +28,92 @@ public class Main
     System.out.println(linkedList.remove(new Node(4))); // false
     linkedList.print(); // 0->3->1->2->null
 
-    //remove last element
+    // remove last element
     System.out.println(linkedList.remove(new Node(2))); // true
     linkedList.print(); // 0->3->1->null
 
-    //remove element in the middle
+    // remove element in the middle
     System.out.println(linkedList.remove(new Node(3))); // true
     linkedList.print(); // 0->1->null
 
-    //remove first element
+    // remove first element
     System.out.println(linkedList.remove(new Node(0))); // true
     linkedList.print(); // 1->null
 
-     //remove the only element
+    // remove the only element
     System.out.println(linkedList.remove(new Node(1))); // true
     linkedList.print(); // empty
-	}
-    
+  }
+
   static class SinglyLinkedList {
 
     private Node head = null;
-      
-    // Add to a specific position; do nothing if the index is out of range or e is null
+
+    // Add to a specific position; do nothing if the index is out of range or e is
+    // null
     // Time complexity: worst case O(n), best case O(1), space complexity: O(1)
     public void add(int index, Node e) {
-      if (e == null) return;
+      if (e == null)
+        return;
 
       if (this.head == null && index == 0) {
         this.head = e;
         return;
       }
 
-      int count = 0;
-      Node prev = null;
+      int count = 1;
       Node curr = this.head;
-      for (int i = 0; i < index && curr != null; i++) {
-        prev = curr;
+      for (int i = 0; i < index && curr.next != null; i++) {
         curr = curr.next;
         count++;
       }
 
       if (count < index) { // index out of range, do nothing
-        return; 
+        return;
       }
 
-      e.next = curr;
-      
-      if (prev != null) {
-        prev.next = e;
-      } else { // add to the beginning
-        this.head = e;
-      }
+      e.next = curr.next;
+      curr.next = e;
     }
 
-    // Removes the first occurrence of the specified element from this list if it is present (i.e., its value equals to e.value.
-    // Returns true if this list contained the specified element; otherwise, returns false.
+    // Removes the first occurrence of the specified element from this list if it is
+    // present (i.e., its value equals to e.value.
+    // Returns true if this list contained the specified element; otherwise, returns
+    // false.
 
     // Time complexity: worst case O(n), best case O(1), space complexity: O(1)
     public boolean remove(Node e) {
-      if (this.head == null || e == null) { return false; }
-      Node prev = null;
+      if (this.head == null || e == null) {
+        return false;
+      }
       Node curr = this.head;
-      
+
+      if (curr.value == e.value) {
+        this.head = curr.next;
+        return true;
+      }
+
       // find the element
-      while (curr != null && curr.value != e.value) {
-        prev = curr;
+      while (curr.next != null && curr.next.value != e.value) {
         curr = curr.next;
       }
 
-      if (curr == null) { // element not found
+      if (curr.next == null) { // element not found
         return false;
       }
 
-      if (prev == null) { // remove the first element
-        this.head = curr.next;
-      } else {
-        prev.next = curr.next;
-      }
+      curr.next = curr.next.next;
 
       return true;
     }
-      
+
     // print linked list
     public void print() {
       if (head == null) {
         System.out.println("empty");
         return;
       }
-        
+
       Node n = head;
       while (n != null) {
         System.out.print(n.value + "->");
@@ -126,14 +123,14 @@ public class Main
       System.out.println();
     }
   }
-	
-	static class Node {
+
+  static class Node {
     int value;
     Node next;
-    
+
     public Node(int value) {
       this.value = value;
       this.next = null;
     }
-	}
+  }
 }

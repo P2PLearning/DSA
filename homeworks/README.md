@@ -22,3 +22,5 @@ Solution: https://repl.it/@HienTo/removeDuplicateCharacters-Solution#Main.java
 
 ## Week 3
 Problem: https://repl.it/@HienTo/SinglyLinkedList#Main.java
+
+Solution: https://repl.it/@HienTo/SinglyLinkedList-Solution#Main.java

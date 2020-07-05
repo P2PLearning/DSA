@@ -63,15 +63,14 @@ public class SingleLinkedList {
     static class SinglyLinkedList {
 
         private Node head = null;
+        private int length = 0;
 
         // Add to a specific position; do nothing if the index is out of range or e is null
         // Time complexity is O(n), iterate the list the find the position to add
         // Space complexity is O(1)
         public void add(int index, Node e) {
-            int listLength = length();
-
             // Edge cases
-            if (index > listLength || index < 0 || e == null) {
+            if (index > length || index < 0 || e == null) {
                 return;
             }
 
@@ -79,25 +78,24 @@ public class SingleLinkedList {
             if (index == 0) {
                 e.next = head;
                 this.head = e;
+                length++;
                 return;
             }
 
             // Add node somewhere in between the list
             int pos = 0;
-            int insertedPos = index - 1;
             Node currNode = this.head;
-            Node nextNode = this.head.next;
 
             // Iterate to the preceding position of the inserted node
             // or until reach the end of the list
-            while (pos != insertedPos && nextNode != null) {
+            while (pos != (index - 1)) {
                 currNode = currNode.next;
-                nextNode = nextNode.next;
                 pos++;
             }
 
+            e.next = currNode.next;
             currNode.next = e;
-            e.next = nextNode;
+            length++;
         }
 
         // Removes the first occurrence of the specified element from this list if it is present (i.e., its value equals to e.value.
@@ -105,49 +103,35 @@ public class SingleLinkedList {
         // Time complexity is O(n), iterate the list the find the node to remove
         // Space complexity is O(1)
         public boolean remove(Node e) {
-            int listLength = length();
 
             // Edge cases
-            if (listLength == 0 || e == null) {
+            if (length == 0 || e == null) {
                 return false;
             }
 
             // If the removed node is the head node
             if (e.value == head.value) {
                 head = head.next;
+                length--;
                 return true;
             }
 
             Node prevNode = this.head;
-            Node current = this.head.next;
 
             // Find the removed node
-            while (current != null && current.value != e.value) {
+            while (prevNode.next != null && prevNode.next.value != e.value) {
                 prevNode = prevNode.next;
-                current = current.next;
             }
 
             // The removed node is not existed in the list
-            if (current == null) {
+            if (prevNode.next == null) {
                 return false;
             }
 
             // Link the previous node to the next node of the removed node
-            prevNode.next = current.next;
-
+            prevNode.next = prevNode.next.next;
+            length--;
             return true;
-        }
-
-        public int length() {
-            Node current = this.head;
-            int count = 0;
-
-            while (current != null) {
-                count++;
-                current = current.next;
-            }
-
-            return count;
         }
 
         // print linked list

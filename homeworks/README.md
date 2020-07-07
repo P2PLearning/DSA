@@ -24,3 +24,6 @@ Solution: https://repl.it/@HienTo/removeDuplicateCharacters-Solution#Main.java
 Problem: https://repl.it/@HienTo/SinglyLinkedList#Main.java
 
 Solution: https://repl.it/@HienTo/SinglyLinkedList-Solution#Main.java
+
+## Week 4
+Problem: https://repl.it/@HienTo/generateRandomValue#Main.java

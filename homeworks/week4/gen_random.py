@@ -9,7 +9,7 @@ class Segment:
         return "[" + str(self.start) + ", " + str(self.end) + "]"
 
 #Two-step randomizing: 1) Choose interval, based on its length. 2) Uniformly random a point on chosen interval
-#Complexity: O(logN) since random.choice use binary search on cumulative weights for searching the index
+#Time Complexity: O(logN) since random.choice use binary search on cumulative weights for searching the index
 #Auxiliary space: O(N) 
 def generateRandomValue(intervals, weights):
     chosen = random.choices(intervals, cum_weights = weights, k = 1)[0]

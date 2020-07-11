@@ -39,13 +39,24 @@ class Main {
                 new Interval(3,9),
                 new Interval(10, 13)
         }; //Separated with different length [0,1] U [3,9] U [10,13]
+
+        Interval[] originalTest = {
+                new Interval(2,5),
+                new Interval(1,3)
+        };
         test(intervals);
         System.out.println("========");
-        test(intervals2);
+        test(originalTest);
         System.out.println("========");
-        test(intervals3);
-        System.out.println("========");
-        test(intervals4);
+
+        // Test for generateRandomValue function only.
+
+        //test(intervals2);
+        //System.out.println("========");
+        //test(intervals3);
+        //System.out.println("========");
+        //test(intervals4);
+
     }
 
     public static void test(Interval[] intervals){
@@ -61,8 +72,14 @@ class Main {
         int[] count = new int[length];
         int iterations = 100000;
         for (int i = 0; i < iterations; i++) {
-            double f = generateRandomValue(intervals);
-            //double f = oldGenerateRandomValue(intervals);
+            // Implemented from Mr Tuan Anh's explanation
+
+            //double f = generateRandomValue(intervals);
+
+            // Implemented from Mr Hien's explanation
+
+            double f = oldGenerateRandomValue(intervals);
+
             for (int j = 0; j < length; j++) {
                 if (f >= (j + low) && f < (j + low + 1)) {
                     count[j]++;
@@ -79,23 +96,27 @@ class Main {
     public static double oldGenerateRandomValue(Interval[] intervals) {
         if (intervals == null || intervals.length == 0) return -1;
         Random rnd = new Random();
-        int rndIndex = rnd.nextInt(intervals.length); //Randomly choose an interval from list
-        return rnd.nextDouble()*intervals[rndIndex].length() + intervals[rndIndex].low; //Return randomly number from chosen interval
-        /* Output
-        Interval [0,1) with probability 12.4552 %
-        Interval [1,2) with probability 33.3997 %
-        Interval [2,3) with probability 29.1824 %
-        Interval [3,4) with probability 16.6218 %
-        Interval [4,5) with probability 8.3409 %
-         */
+        double rndNumber = rnd.nextDouble(); // Uniformly generate a number
+        double firstRange = 0;
+        double span = 0;
+        for (Interval interval : intervals) // O(n) Time
+            span += interval.length();
+        for (Interval interval : intervals){ // O(n) Time
+            if(rndNumber >= firstRange/span && rndNumber < (firstRange+interval.length())/span){
+                return rndNumber*span - (firstRange - interval.low);
+            }
+            firstRange += interval.length();
+        }
+        return -1;
     }
+    // Time Complexity: O(2kn) with k is sample times. It can be reduced to O(kn) + O(n) if taking the loop to calculate span outside the function.
+    // Space Complexity: O(1)
 
     public static double generateRandomValue(Interval[] intervals){
         if(intervals == null || intervals.length == 0) return -1;
 
         //Union intervals
-        Arrays.sort(intervals, (i1, i2) -> Double.compare(i1.low, i2.low)); //Sort intervals
-        //ArrayList<Interval> tempIntervals = new ArrayList<Interval>(intervals.length); // O(n) Space
+        Arrays.sort(intervals, (i1, i2) -> Double.compare(i1.low, i2.low)); //Sort intervals, O(nlogn) Time
         int count = 0; // O(1) Space
         double low = intervals[0].low; // O(1) Space
         double high = intervals[0].high; // O(1) Space
@@ -129,7 +150,7 @@ class Main {
         }
         return -1;
     }
-    //Time Complexity: O(n)
+    //Time Complexity: O(knlogn)
     //Space Complexity O(1)
 
 

@@ -20,7 +20,7 @@ public class VuNguyen {
         System.out.println(lowestCommonBoss(boss, 5, -1));  // excep
     }
 
-    // time complexity: O(n)
+    // time complexity: worst is O(h)
     // space complexity: O(n) for set
     static int lowestCommonBoss(int[] boss, int e1, int e2) {
         if (e1 < -1 || e1 >= boss.length) {

@@ -34,3 +34,6 @@ Solution: https://repl.it/@HienTo/generateRandomValue-Solution#Main.java
 Problem: https://repl.it/@HienTo/lowestCommonBoss#Main.java
 
 Solution: https://repl.it/@HienTo/lowestCommonBoss-Solution#Main.java
+
+## Week 6
+Problem: https://repl.it/@HienTo/getShortestSubstringOfAllCharacters

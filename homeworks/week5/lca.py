@@ -1,3 +1,4 @@
+
 #Time Complexity: O(h) where h is height of the induced tree
 #Space: O(1)
 def find_lca(parent, u, v):
@@ -24,6 +25,23 @@ def find_lca(parent, u, v):
         v = parent[v]
     print(v)
     return v
+#Binary Lifting. This will allow us to find lca in O(logH) for each query. This is better in case the number of query is large, for example nquery = O(N). 
+#Time Complexity: Nlog(H). Here instead of logH I use step = const = 10, so TC = O(N)
+#Space: O(NlogH), in below implemenation: O(N)
+#Details: https://cp-algorithms.com/graph/lca_binary_lifting.html
+def binary_lifting(parent):
+    N = len(parent)
+    ancestors = [{i: parent[i] for i in range(N)}]
+    step = 10 #2**10 = 1024
+    print(ancestors)
+    for _ in range(step):
+        B = {}
+        for i in ancestors[-1]:
+            if ancestors[-1][i] in ancestors[-1]:
+                B[i] = ancestors[-1][ancestors[-1][i]]
+        ancestors.append(B)
+def find_lca_binarylift(parent, u, v):
+    pass
 def main():
     boss = [1, 3, 3, -1, -1, 4, 2, 8, 3]
     #Naive method: O(N) for each query
@@ -37,5 +55,6 @@ def main():
     find_lca(boss, 4, 2)
     find_lca(boss, 4, 3)
     find_lca(boss, 4, -1)
-    pass
+    
+    binary_lifting(boss)
 main()

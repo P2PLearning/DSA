@@ -1,0 +1,11 @@
+// I find this problem is quite tricky
+// My approach is that we I try to compare the identify the string s that include all the characters in T. String that sastifies this condition is called Good String
+// Then I continuously compare the current Good String with previous one everytime I detect a new Good String and return the shortest Good String.
+// after Finishing for looking all the GoodString, I return the shortest one.
+
+//Based on the this approach, I expect the time complexity will be O(n^2)
+//while the space complexity will be at most O(n) for saving the Good String.
+
+//Due to the difficulty of this problem, I only describe my approach only. Hope you don't mind :))
+      
+

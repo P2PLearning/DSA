@@ -41,9 +41,9 @@ def lowestCommonBoss(boss, e1, e2):
     while True:
         parent1.add(e1)
         parent2.add(e2)
-        if e1 in p2:
+        if e1 in parent2:
             return e1
-        if e2 in p1:
+        if e2 in parent1:
             return e2
         if 0 <= e1 <= len(boss) - 1:
             e1 = boss[e1]

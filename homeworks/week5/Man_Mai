@@ -1,0 +1,64 @@
+// Find lowest common boss in a tree;
+// Input: [1, 3, 3, -1, -1, 4, 2, 8, 3]
+// 0 reports to 1, 1 reports to 3, 2 reports to 3, 3 reports to -1 (highest boss), etc.
+//      -1
+//     /  \
+//    3    4
+//  / | \   \
+// 8  2  1   5
+// |  |  |
+// 7  6  0
+// Assumption: the input array is non-empty. And  and valid inputs.
+// Requirement: No extra storage. No build-in library.
+
+class Main {
+  public static void main(String[] args) {
+    int[] boss = { 1, 3, 3, -1, -1, 4, 2, 8, 3 };
+    for(int element: getBoss(boss, 2)){
+      System.out.println(element+"and");  
+    }
+    System.out.println(lowestCommonBoss(boss, 1, 1));  // 1
+		System.out.println(lowestCommonBoss(boss, 2, 0));  // 3
+    System.out.println(lowestCommonBoss(boss, 6, 0));  // 3
+    System.out.println(lowestCommonBoss(boss, 7, 1));  // 3
+    System.out.println(lowestCommonBoss(boss, 4, 5));  // 4
+    System.out.println(lowestCommonBoss(boss, 6, 5));  // -1
+    System.out.println(lowestCommonBoss(boss, 4, 2));  // -1
+    System.out.println(lowestCommonBoss(boss, 4, 3));  // -1
+    System.out.println(lowestCommonBoss(boss, 4, -1));  // -1
+  }
+  //Time complexity avg O(h), worst O(n): tree is straight
+  //to include the exeption case, it would make the Time complexity increase to O(n) in average
+  //space complexity (n) for array
+	static int lowestCommonBoss(int[] boss, int e1, int e2) {
+      int [] l1 = getBoss(boss,e1);
+      int [] l2 = getBoss(boss,e2);
+      int a1 =l1.length-1;
+      int a2 =l2.length-1;
+      int i;
+
+      if(e1==e2) return e1;
+      for(i =0; i<a1;i++){
+        for(int j=0; j<a2;j++){
+        if(l1[i]==l2[j]){ return l1[i];}
+      }
+    }
+  return l1[i];
+	}
+
+  static int [] getBoss(int[] boss, int e){
+    int [] blist = new int[boss.length];
+    int l = boss.length;
+    int t = e,i=0;
+    if(e<0||e>l-1){blist[0] = e; return blist;}
+    blist[i] = e; 
+    while(!(boss[t]<0)&&!(boss[t]>l-1)){
+      blist[i+1] = boss[t];
+      t = boss[t];
+      i++;
+    }
+    blist[i+1] = boss[t];
+    return blist;
+  }
+  
+}

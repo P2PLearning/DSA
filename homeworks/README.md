@@ -37,3 +37,5 @@ Solution: https://repl.it/@HienTo/lowestCommonBoss-Solution#Main.java
 
 ## Week 6
 Problem: https://repl.it/@HienTo/getShortestSubstringOfAllCharacters
+
+Solution: https://repl.it/@HienTo/getShortestSubstringOfAllCharacters-Solution#Main.java
